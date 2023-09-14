@@ -18,9 +18,66 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
-   
 
+    <div id="app">
+
+        <div id="background-container">
+
+            <div id="back-green"></div>
+
+            <div id="back-grey"></div>
+        </div>
+
+        <div id="main-container">
+
+            <header class="my-row">
+
+                <div id="user-profile" class="my-row">
+
+                    <div id="user-img">
+                        
+                        <img src="./img/avatar_io.jpg" 
+                        class="profile-img" alt="">
+                    </div>
+
+                    <div class="username">
+
+                        <p class="title">
+                            Sofia
+                        </p>
+                    </div>
+
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+
+                <div id="active-contact" class="my-row">
+
+                    <div id="active-contact-img">
+
+                        <img :src="contacts[selectedContactIndex].avatar" class="profile-img" alt="">
+                    </div>
+
+                    <div id="active-contact-info">
+
+                        <p class="title">
+                            
+                        </p>
+
+                        <p class="subtitle">
+                            
+                        </p>
+                    </div>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <i class="fa-solid fa-link"></i>
+
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </header>
+        
 
 
 

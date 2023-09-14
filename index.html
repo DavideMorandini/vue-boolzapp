@@ -56,7 +56,7 @@
 
                     <div id="active-contact-img">
 
-                        <img :src="contacts[selectedContactIndex].avatar" class="profile-img" alt="">
+                        <img class="profile-img" alt="">
                     </div>
 
                     <div id="active-contact-info">
@@ -106,16 +106,16 @@
                             <i id="small-mglass" class="fa-solid fa-magnifying-glass"></i>
                         </button>
 
-                        <input v-model="searchText" @keyup="searchContact()" type="search" placeholder="Cerca o inizia una nuova chat">
+                        <input type="search" placeholder="Cerca o inizia una nuova chat">
                     </div>
 
                     <div id="contacts-container">
 
-                        <div @click="selectContact(index)" v-for="(contact,index) in contacts" v-show="contact.visible" :class="contact == contacts[selectedContactIndex] ? 'active' : '' " class="contact my-row">
+                        <div class="contact my-row">
 
                             <div id="user-img">
 
-                                <img :src="contact.avatar" class="profile-img" alt="">
+                                <img class="profile-img" alt="">
                             </div>
 
                             <div class="contact-info">
@@ -124,7 +124,7 @@
                                     
                                 </p>
 
-                                <p class="subtitle" v-if="contact.messages.length > 0 ">
+                                <p class="subtitle">
                                   
                                 </p>
 
@@ -140,9 +140,51 @@
                     </div>
                 </div>
 
+                <!-- Lato Destro del contenitore -->
+                <div id="right-side">
+                
+                    <div id="main-display">
 
-    
+                        <div class="message">
+                            
+                            <p class="box-text">
+                               
+                            </p>
 
+                            <p class="time-message">
+
+                            </p>
+
+                            <div id="dropdown-menu">
+
+                                <p>
+                                </p>
+                            </div>
+
+                            <i id="message-chevron" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <div id="send-message" class="my-row">
+
+                        <div id="smile-container">
+                            
+                            <i class="fa-regular fa-face-smile"></i>
+                        </div>
+
+                        <input id="message-writer" type="search" placeholder="Scrivi un messaggio">
+
+                        <div id="mic-container">
+
+                            <i class="fa-solid fa-microphone"></i>
+
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

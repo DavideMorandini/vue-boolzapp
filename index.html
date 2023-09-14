@@ -78,7 +78,67 @@
                 </div>
             </header>
         
+            <div id="main-content">
 
+                <!-- Lato Sinistro del contenitore -->
+                <div id="left-side">
+
+                    <div id="notifications" class="my-row">
+
+                        <i id="bell" class="fa-solid fa-bell-slash"></i>
+
+                        <div id="advise">
+
+                            <p class="title">
+                                Ricevi notifiche di nuovi messaggi
+                            </p>
+
+                            <p class="subtitle">
+                                Attiva notifiche desktop
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="search-contact" class="my-row">
+                        
+                        <button>
+                        
+                            <i id="small-mglass" class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+
+                        <input v-model="searchText" @keyup="searchContact()" type="search" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+
+                    <div id="contacts-container">
+
+                        <div @click="selectContact(index)" v-for="(contact,index) in contacts" v-show="contact.visible" :class="contact == contacts[selectedContactIndex] ? 'active' : '' " class="contact my-row">
+
+                            <div id="user-img">
+
+                                <img :src="contact.avatar" class="profile-img" alt="">
+                            </div>
+
+                            <div class="contact-info">
+
+                                <p class="title"> 
+                                    
+                                </p>
+
+                                <p class="subtitle" v-if="contact.messages.length > 0 ">
+                                  
+                                </p>
+
+                                <p class="subtitle" v-else>
+                                    
+                                </p>
+                            </div>
+
+                            <p class="subtitle time-message">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
 
     

@@ -4,3 +4,122 @@
     box-sizing: border-box;
 }
 
+body {
+    position: relative;
+    overflow-y: hidden;
+}
+
+p {
+    line-height: 0.6;
+}
+
+#background-container {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-flow: column;
+}
+
+#back-green {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 15vh;
+    background-color: #009688;
+}
+
+#back-grey {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 85vh;
+    background-color: #dadbd2;
+}
+
+#main-container {
+    /* border: 1px solid black; */
+    width: 1100px;
+    height: 850px;
+    display: flex;
+    flex-flow: column;
+    background-color: #f3eeea;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#main-container .my-row {
+    /* border: 1px solid black; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+}
+
+#main-container #main-display {
+    /* border: 1px solid black; */
+    height: 500px;
+}
+
+#main-container #main-content {
+    /* border: 1px solid black; */
+    height: 100%;
+    display: flex;
+}
+
+.profile-img {
+    /* border: 1px solid black; */
+    height: 60px;
+    border-radius: 50%;
+}
+
+#main-container  .title {
+    /* border: 1px solid black; */
+    font-weight: bold;
+}
+
+#main-container .subtitle {
+    /* border: 1px solid black; */
+    color: rgba(0, 0, 0, .5);
+    line-height: 1;
+}
+
+#main-container i {
+    /* border: 1px solid black; */
+    font-size: 25px;
+    color: #b1b1b1;
+    padding-right: 10px;
+}
+
+/* Header */
+#app #main-container header {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 80px;
+    display: flex;
+    background-color: #eaeaea;
+    gap: 0;
+}
+
+#main-container header #user-profile {
+    /* border: 1px solid black; */
+    width: 40%;
+    height: 100%;
+    display: flex;
+}
+
+#main-container header #user-profile .username {
+    /* border: 1px solid black; */
+    width: 80%;
+}
+
+#main-container header #active-contact {
+    /* border: 1px solid black; */
+    width: 60%;
+    display: flex;
+    border-left: 1px solid rgba(0, 0, 0, .3);
+}
+
+#main-container header #active-contact #active-contact-info {
+    /* border: 1px solid black; */
+    width: 80%;
+}

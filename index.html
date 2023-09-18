@@ -20,165 +20,93 @@
 <body>
 
     <div id="app">
-
         <div id="background-container">
-
             <div id="back-green"></div>
-
             <div id="back-grey"></div>
         </div>
 
         <div id="main-container">
 
             <header class="my-row">
-
                 <div id="user-profile" class="my-row">
-
                     <div id="user-img">
-
-                        <img src="./img/avatar_io.jpg" class="profile-img" alt="">
+                        <img src="img/avatar_io.jpg" class="profile-img" alt="">
                     </div>
-
                     <div class="username">
-
-                        <p class="title">
-                            Sofia
-                        </p>
+                        <p class="title">Sofia</p>
                     </div>
-
                     <i class="fa-regular fa-circle"></i>
-
                     <i class="fa-solid fa-message"></i>
-
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                     
                 </div>
-
                 <div id="active-contact" class="my-row">
-                    
                    <div id="active-contact-img">
-
                         <img :src="contacts[selectedContactIndex].avatar" class="profile-img" alt="">
                    </div>
-
                    <div id="active-contact-info">
-
-                        <p class="title">
-                            <!-- {{contacts[selectedContactIndex].name} -->
-                        </p>
-
-                        <p class="subtitle">
-                            <!-- {{lastAccess}} -->
-                        </p>
+                        <p class="title">{{contacts[selectedContactIndex].name}}</p>
+                        <p class="subtitle">{{lastAccess}}</p>
                    </div>
-
                    <i class="fa-solid fa-magnifying-glass"></i>
-
                    <i class="fa-solid fa-link"></i>
-
                    <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </header>
 
+
             <div id="main-content">
-                
-                <!-- Parte Sinistra del container -->
+
+                <!-- Parte Sinistra del contenitore -->
                 <div id="left-side">
-
                     <div id="notifications" class="my-row">
-
                         <i id="bell" class="fa-solid fa-bell-slash"></i>
-
                         <div id="advise">
-
-                            <p class="title">
-                                Ricevi notifiche di nuovi messaggi
-                            </p>
-
-                            <p class="subtitle">
-                                Attiva notifiche desktop
-                            </p>
+                            <p class="title">Ricevi notifiche di nuovi messaggi</p>
+                            <p class="subtitle">Attiva notifiche desktop</p>
                         </div>
                     </div>
-
                     <div id="search-contact" class="my-row">
-
-                        <button>
-                            <i id="small-mglass" class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-
+                        <button><i id="small-mglass" class="fa-solid fa-magnifying-glass"></i></button>
                         <input v-model="searchText" @keyup="searchContact()" type="search" placeholder="Cerca o inizia una nuova chat">
                     </div>
 
                     <div id="contacts-container">
                         <div @click="selectContact(index)" v-for="(contact,index) in contacts" v-show="contact.visible" :class="contact == contacts[selectedContactIndex] ? 'active' : '' " class="contact my-row">
-
                             <div id="user-img">
-
                                 <img :src="contact.avatar" class="profile-img" alt="">
                             </div>
-
                             <div class="contact-info">
-
-                                <p class="title"> 
-                                    <!-- {{contact.name}} -->
-                                </p>
-
-                                <p class="subtitle" v-if="contact.messages.length > 0 ">
-                                    <!-- {{contact.messages[contact.messages.length-1].message}} -->
-                                </p>
-
-                                <p class="subtitle" v-else>
-                                    Nessun messaggio
-                                </p>
+                                <p class="title"> {{contact.name}}</p>
+                                <p class="subtitle" v-if="contact.messages.length > 0 ">{{contact.messages[contact.messages.length-1].message}}</p>
+                                <p class="subtitle" v-else>Nessun messaggio</p>
                             </div>
-
-                            <p class="subtitle time-message">
-                                <!-- {{getLastMessageHour(contact.messages[contact.messages.length-1].date)}} -->
-                            </p>
+                            <p class="subtitle time-message">{{getLastMessageHour(contact.messages[contact.messages.length-1].date)}}</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Parte Destra del container  -->
+                <!-- Parte Destra del contenitore  -->
                 <div id="right-side">
                 
                     <div id="main-display">
-
                         <div v-for="(message, index) in contacts[selectedContactIndex].messages" :class="message.status" class="message">
-
-                            <p class="box-text">
-                                <!-- {{message.message}} -->
-                            </p>
-
-                            <p class="time-message">    
-                                <!-- {{getMessageHour(message.date)}} -->
-                            </p>
-
+                            <p class="box-text">{{message.message}}</p>
+                            <p class="time-message">{{getMessageHour(message.date)}}</p>
                             <div id="dropdown-menu" v-if="message.showMenu">
-
-                                <p @click="deleteMessage(index)">
-                                    Elimina messaggio
-                                </p>
+                                <p @click="deleteMessage(index)">Elimina messaggio</p>
                             </div>
-
                             <i @click="toggleShowMenu(message)" id="message-chevron" class="fa-solid fa-chevron-down"></i>
                         </div>
+                    
                     </div>
-
                     <div id="send-message" class="my-row">
-
                         <div id="smile-container">
-
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
-
                         <input @click="switchOption();" v-model="newMessageText" @keyup="switchOption()" @keyup.enter="sendMessage()" id="message-writer" type="search" placeholder="Scrivi un messaggio">
-
                         <div id="mic-container">
-
                             <i v-show="showMic" class="fa-solid fa-microphone"></i>
-                            
                             <i @click="sendMessage()" v-show="showPlane" class="fa-solid fa-paper-plane"></i>
                         </div>
                     </div>
